@@ -106,6 +106,9 @@ public class DownloadManager {
 		private void init(final OSMTileInfo pTileInfo) {
 			this.mTileInfo = pTileInfo;
 			/* Create destination file. */
+//			System.out.print("DownloadManager.this.mDestinationURL = "+DownloadManager.this.mDestinationURL+" ");
+			System.out.println("zoom="+this.mTileInfo.zoom+" x="+this.mTileInfo.x+" y="+this.mTileInfo.y);
+
 			final String filename = String.format(DownloadManager.this.mDestinationURL, this.mTileInfo.zoom, this.mTileInfo.x, this.mTileInfo.y);
 			this.mDestinationFile = new File(filename);
 

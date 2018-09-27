@@ -303,8 +303,8 @@ public class OSMMapTilePackager {
                + File.separator + "%d"
                + File.separator + "%d"
                + File.separator + "%d"
-               + pBaseURL.substring(pBaseURL.lastIndexOf('.'))
-               + pFileAppendix
+//               + pBaseURL.substring(pBaseURL.lastIndexOf('.'))
+               +"."+ pFileAppendix
                .replace(File.separator + File.separator, File.separator);
 
           final DownloadManager dm = new DownloadManager(pBaseURL, pTempBaseURL, pThreadCount);

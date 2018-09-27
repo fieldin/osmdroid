@@ -1,0 +1,22 @@
+build the tool:
+==================
+$ cd osmdroid/OSMMapTilePackager/
+$ rm -Rf ./build
+$ gradle build
+$ gradle distZip
+$ cd build/distributions/
+$ tar -xvf OSMMapTilePackager-6.0.3-SNAPSHOT.tar
+$ cd OSMMapTilePackager-6.0.3-SNAPSHOT/bin/
+
+run the tool
+=============
+./OSMMapTilePackager -u "http://mt0.google.com/vt/lyrs=s&z=%d&x=%d&y=%d" -fa png -t Mapnik -d ramat_yishai_12.zip -zmax 12 -n 32.71335 -s 32.6899 -e 35.15188 -w 35.18115
+
+
+Notes:
+======
+if the zip file is created in Windows, the entries 
+paths will contain '\' and the zip file provider is looking up using '/' notation.
+to resolve it, run 
+
+$ 7z rn ramat_yishai_12.zip $(7z l ramat_yishai_12.zip | grep '\\' | awk '{ print $6, gensub(/\\/, "/", "g", $6); }' | paste -s)
